@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Castles</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="css/main.css" rel="stylesheet" media="screen"/>
+</head>
+<body>
+    <div id="welcome">
+        <div id="welcomeScreen">
+            <p>Welcome to Castles.</p>
+            <button type="button" onclick="startGame()">Start</button>
+        </div>
+    </div>
+    <div id="gameBoard">
+        <div class="row1">
+            <div id="ap">
+                2/2 Action Points
+            </div>
+            <div id="topButtons">
+                <button type="button">Restart</button>
+                <button type="button">Guide</button>
+            </div>
+        </div>
+        <div id="mainBoard">
+            <div class="row2">
+                Player 1 attacks (x1) Player 2! They roll a 6 and destroy a castle!
+            </div>
+            <div class="row3">
+                <div>
+                    <div class="castle">
+                        5
+                    </div>
+                    <div class="castle">
+                        5
+                    </div>
+                    <div class="castle">
+                        5
+                    </div>
+                </div>
+                <div class="castleButtons">
+                    <div>
+                        <button type="button">Attack (x1)</button>
+                    </div>
+                    <div>
+                        <button type="button">Attack (x2)</button>
+                    </div>
+                </div>
+                <div class="castleButtons">
+                    <div>
+                        <button type="button">Attack (x1)</button>
+                    </div>
+                    <div>
+                        <button type="button">Attack (x2)</button>
+                    </div>
+                </div>
+                <div class="castleButtons">
+                    <div>
+                        <button type="button">Attack (x1)</button>
+                    </div>
+                    <div>
+                        <button type="button">Attack (x2)</button>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div>
+                    <img src="img/column2.png" height="150" class="columnLeft">
+                    <img src="img/column2.png" height="150" class="columnRight">
+                </div>
+            </div>
+            <div class="row4">
+                <img src="img/column2.png" height="150">
+                <div class="dice">
+                    6
+                </div>
+                <img src="img/column2.png" height="150">
+            </div>
+            <div class="column">
+                <div>
+                    <img src="img/column2.png" height="150" class="columnLeft">
+                    <img src="img/column2.png" height="150" class="columnRight">
+                </div>
+            </div>
+            <div class="row5">
+                <div>
+                    <div class="castle">
+                        5
+                    </div>
+                    <div class="castle">
+                        5
+                    </div>
+                    <div class="castle">
+                        5
+                    </div>
+                </div>
+                <div>
+                    <div class="castleAttackText">
+                        (+0 Attack)
+                    </div>
+                    <div class="castleAttackText">
+                        (+0 Attack)
+                    </div>
+                    <div class="castleAttackText">
+                        (+0 Attack)
+                    </div>
+                </div>
+                <div class="castleButtons2">
+                    <div>
+                        <button type="button">Increase Attack</button>
+                    </div>
+                    <div>
+                        <button type="button">Increase Defense</button>
+                    </div>
+                </div>
+                <div class="castleButtons2">
+                    <div>
+                        <button type="button">Increase Attack</button>
+                    </div>
+                    <div>
+                        <button type="button">Increase Defense</button>
+                    </div>
+                </div>
+                <div class="castleButtons2">
+                    <div>
+                        <button type="button">Increase Attack</button>
+                    </div>
+                    <div>
+                        <button type="button">Increase Defense</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="powerCards">
+            <div id="powerCardsTitle">
+                Power Cards
+            </div>
+            <div id="powerCardsList">
+                <ul>
+                    <li>+1 Attack</li>
+                    <li>+1 Defense</li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+            <div id="powerCardsButtons">
+                <div>
+                    <button type="button">Draw Power Card</button>
+                </div>
+                <div>
+                    <button type="button">Clear Power Cards</button>
+                </div>
+            </div>
+        </div>
+        <div class="row6">
+            <button type="button">End Turn</button>
+        </div>
+    </div>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
