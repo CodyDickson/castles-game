@@ -1,0 +1,172 @@
+/* Color Codes
+Gray: #545454
+Light Purple: #d6c4d9
+Light Green / Gold: #e1e5d4
+Light Gray: #e1dedd
+Darker Purple: #cec7d8
+Lighter Purple: #cec0e7
+Lighter Pinkish Purple: #e2d0df
+Brown: #e4d2c0
+
+*/
+
+/* Generic Content (Body) */
+body {
+    background: #545454;
+    font-size: 3em;
+}
+
+p {
+    color: #d6c4d9;
+    font-size: 1.5em;
+}
+
+/* Welcome Screen */
+#welcome {
+    display: none;
+}
+
+#welcomeScreen {
+    margin: auto;
+    width: 50%;
+    padding: 15% 0;
+    text-align: center;
+}
+
+/* Game Board */
+#gameBoard {
+    display: block;
+    position: relative;
+}
+
+#mainBoard {
+    width: 85%;
+    float: left;
+}
+
+#powerCards {
+    width: 14%;
+    float: left;
+    transform: translateY(+75%);
+    font-size: .5em;
+    border: 1px solid black;
+}
+
+/* Power Cards*/
+#powerCardsTitle {
+    text-align: center;
+    border-bottom: 1px solid black;
+}
+
+#powerCardsButtons {
+    text-align: center;
+}
+
+/* Row 1 - Action Points, Restart, Guide */
+.row1 {
+    border: 1px solid black;
+}
+
+#ap {
+    display: inline-block;
+}
+
+#topButtons {
+    display: inline-block;
+    position: absolute;
+}
+
+/* Row 2 - Narrator Text */
+.row2 {
+    width: 90%;
+    margin: 0 auto;
+    font-size: .5em;
+    text-align: center;
+    border: 1px solid black;
+}
+
+/* Row 3 - Opponent's Castle Row */
+.row3 {
+    width: 90%;
+    text-align: center;
+    margin: 0 auto;
+    border: 1px solid black;
+}
+
+/* Castles and Castle Buttons*/
+.castle {
+    padding: 3px;
+    margin: 0 3em;
+    display: inline-block;
+    text-align: center;
+}
+
+.castleAttackText {
+    padding: 3px;
+    margin: 0 4em;
+    display: inline-block;
+    text-align: center;
+    font-size: .5em;
+}
+
+.castleButtons {
+    display: inline-block;
+    margin: 0 2.5em;
+    text-align: center;
+}
+
+.castleButtons2 {
+    display: inline-block;
+    margin: 0 2em;
+    text-align: center;
+}
+
+/* Columns */
+.column {
+    width: 90%;
+    text-align: center;
+    margin: 0 auto;
+    border: 1px solid black;
+}
+
+.columnLeft {
+    padding-right: 350px;
+}
+
+.columnRight {
+    padding-left: 350px;
+}
+
+/* Row 4 - Dice Box and Columns*/
+.row4 {
+    width: 90%;
+    text-align: center;
+    margin: 0 auto;
+    border: 1px solid black;
+}
+
+.row4 img {
+    display: inline-block;
+    padding: 0 330px;
+}
+
+.dice {
+    display: inline-block;
+}
+
+/* Row 5 - Player's Castle Row */
+.row5 {
+    width: 90%;
+    text-align: center;
+    margin: 0 auto;
+    border: 1px solid black;
+}
+
+/* Row 6 - End Turn */
+.row6 {
+    float: left;
+    width: 100%;
+    text-align: right;
+    margin: 0 auto;
+    border: 1px solid black;
+}
