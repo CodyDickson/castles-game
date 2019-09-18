@@ -1,172 +1,205 @@
-/* Color Codes
-Gray: #545454
-Light Purple: #d6c4d9
-Light Green / Gold: #e1e5d4
-Light Gray: #e1dedd
-Darker Purple: #cec7d8
-Lighter Purple: #cec0e7
-Lighter Pinkish Purple: #e2d0df
-Brown: #e4d2c0
-
-*/
-
-/* Generic Content (Body) */
-body {
-    background: #545454;
-    font-size: 3em;
+/* Landing Page */
+#landing {
+  background: linear-gradient(rgba(81, 135, 27, .2), rgba(112, 190, 33, .2)), url("../images/landing.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 350px;
+  border-bottom: 1px solid black;
 }
 
-p {
-    color: #d6c4d9;
-    font-size: 1.5em;
+/* Main Content */
+.main {
+  margin: 6em 2em;
+  font: 20px 'Hepta Slab', serif;
 }
 
-/* Welcome Screen */
-#welcome {
-    display: none;
+.hike {
+  margin: 4em auto;
+  max-width: 1500px;
 }
 
-#welcomeScreen {
-    margin: auto;
-    width: 50%;
-    padding: 15% 0;
-    text-align: center;
+.hike h1 {
+  font-family: 'Hepta Slab', serif;
+  font-size: 38px;
 }
 
-/* Game Board */
-#gameBoard {
-    display: block;
-    position: relative;
+.hikeRight {
+  text-align: right;
 }
 
-#mainBoard {
-    width: 85%;
-    float: left;
+.tree {
+  text-align: center;
 }
 
-#powerCards {
-    width: 14%;
-    float: left;
-    transform: translateY(+75%);
-    font-size: .5em;
-    border: 1px solid black;
+/* Image Gallery and Arrows*/
+.gallery {
+  text-align: center;
+  height: 550px;
+  margin-top: 3em;
 }
 
-/* Power Cards*/
-#powerCardsTitle {
-    text-align: center;
-    border-bottom: 1px solid black;
+.arrow {
+  display: block;
+  float: left;
+  width: 30%;
+  padding: 5px;
 }
 
-#powerCardsButtons {
-    text-align: center;
+.mobileArrow {
+  display: none;
 }
 
-/* Row 1 - Action Points, Restart, Guide */
-.row1 {
-    border: 1px solid black;
+.picture {
+  float: left;
+  width: 40%;
+  padding: 5px;
 }
 
-#ap {
-    display: inline-block;
+.arrow img {
+  height: 64px;
+  width: 64px;
+  cursor: pointer;
+  margin: 9em 3em;
 }
 
-#topButtons {
-    display: inline-block;
-    position: absolute;
+.picture img {
+  border-radius: 15px;
+  border: 1px solid black;
+  max-width: 450px;
+  max-height: 450px;
 }
 
-/* Row 2 - Narrator Text */
-.row2 {
-    width: 90%;
-    margin: 0 auto;
-    font-size: .5em;
-    text-align: center;
-    border: 1px solid black;
+.picture img:hover {
+  opacity: 0.7;
+  cursor: zoom-in;
 }
 
-/* Row 3 - Opponent's Castle Row */
-.row3 {
-    width: 90%;
-    text-align: center;
-    margin: 0 auto;
-    border: 1px solid black;
+/* Modal Content */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  padding-bottom: 3em;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.9);
 }
 
-/* Castles and Castle Buttons*/
-.castle {
-    padding: 3px;
-    margin: 0 3em;
-    display: inline-block;
-    text-align: center;
+.modal-content {
+  margin: auto;
+  display: block;
+  border: 1px solid #888;
+  width: 100%;
+  max-width: 700px;
+  max-height: 757px;
+  animation-name: zoom;
+  animation-duration: 0.6s;
 }
 
-.castleAttackText {
-    padding: 3px;
-    margin: 0 4em;
-    display: inline-block;
-    text-align: center;
-    font-size: .5em;
+@keyframes zoom {
+  from {transform: scale(0)}
+  to {transform: scale(1)}
 }
 
-.castleButtons {
-    display: inline-block;
-    margin: 0 2.5em;
-    text-align: center;
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
 }
 
-.castleButtons2 {
-    display: inline-block;
-    margin: 0 2em;
-    text-align: center;
+.close:hover, .close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-/* Columns */
-.column {
-    width: 90%;
-    text-align: center;
-    margin: 0 auto;
-    border: 1px solid black;
+/* Footer */
+.footer {
+  width: 100%;
+  background-color: #222;
+  color: #ccc;
+  text-align: center;
 }
 
-.columnLeft {
-    padding-right: 350px;
+.footer-copyright {
+  color: #fff;
+  padding: 40px 0;
 }
 
-.columnRight {
-    padding-left: 350px;
-}
-
-/* Row 4 - Dice Box and Columns*/
-.row4 {
-    width: 90%;
-    text-align: center;
-    margin: 0 auto;
-    border: 1px solid black;
-}
-
-.row4 img {
-    display: inline-block;
-    padding: 0 330px;
-}
-
-.dice {
-    display: inline-block;
-}
-
-/* Row 5 - Player's Castle Row */
-.row5 {
-    width: 90%;
-    text-align: center;
-    margin: 0 auto;
-    border: 1px solid black;
-}
-
-/* Row 6 - End Turn */
-.row6 {
-    float: left;
+/* Mobile / Smaller Screens */
+@media (max-width: 768px) {
+  .modal-content {
     width: 100%;
-    text-align: right;
+  }
+
+  #landing {
+    height: 200px;
+  }
+
+  body {
+    max-width: 100%;
+  }
+  .main {
     margin: 0 auto;
-    border: 1px solid black;
+    padding: 0 5%;
+    text-align: center;
+  }
+
+  .main p {
+    font-size: 14px;
+    font-family: Verdana, Sans-Serif;
+    line-height: 1.5;
+  }
+
+  .hike {
+    text-align: center;
+  }
+
+  .hikeRight {
+    text-align: center;
+  }
+
+  .arrow {
+    display: none;
+  }
+
+  .mobileArrow {
+    display: block;
+    float: left;
+    width: 50%;
+  }
+
+  .mobileArrow img {
+    display: block;
+    margin: auto;
+    height: 64px;
+    width: 64px;
+  }
+
+  .picture {
+    width: 100%;
+    padding-top: 1em;
+  }
+
+  .picture img {
+    max-width: 100%;
+  }
+
+  .gallery {
+    height: 500px;
+  }
+
+  .footer p {
+    margin: 0 1em;
+  }
 }
