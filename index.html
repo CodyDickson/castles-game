@@ -1,164 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Castles</title>
+    <title>Hiking Adventures</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen"/>
     <link href="css/main.css" rel="stylesheet" media="screen"/>
+    <link href="css/normalize.css" rel="stylesheet" media="screen"/>
+    <link href="https://fonts.googleapis.com/css?family=Hepta+Slab&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="welcome">
-        <div id="welcomeScreen">
-            <p>Welcome to Castles.</p>
-            <button type="button" onclick="startGame()">Start</button>
+<div id="landing"></div>
+<div class="main" id="main">
+  <div class="hike">
+    <div class="tree">
+      <img src="images/trees.png" height="64" width="64">
+    </div>
+    <div class="overview">
+      <h1>Welcome!</h1>
+      <p><b>Hiking Adventures</b> is a series of galleries that feature pictures from our different hiking trips. Use the Left and Right arrows to cycle through the pictures and click / tap on the pictures to make them bigger.</p>
+      <p><a href="#wildcat">Wildcat Wayside Nature Trail (Cleveland, SC)</a></p>
+      <p><a href="#carrick">Carrick Creek Loop (Table Rock State Park, SC)</a></p>
+      <p><a href="#brissy">Brissy Ridge (Paris Mountain State Park, SC)</a></p>
+    </div>
+  </div>
+  <div class="hike">
+    <div class="tree">
+      <img src="images/trees.png" id="wildcat" height="64" width="64">
+    </div>
+    <div class="hikeLeft">
+      <h1>Wildcat Wayside Nature Trail</h1>
+      <p>Cleveland, South Carolina</p>
+      <p><a href="https://goo.gl/maps/YXR6u2RgjMDRaax49" target="_blank">Location Map</a></p>
+      <p>Summer 2019</p>
+      <p>24 Pictures</p>
+    </div>
+    <div class="gallery">
+      <div class="arrow"> 
+        <img src="images/arrowLeft.png" onclick="changeImageBack('hike1')">
+      </div>
+      <div class="mobileArrow"> 
+        <img src="images/arrowLeft.png" onclick="changeImageBack('hike1')">
+      </div>
+      <div class="mobileArrow"> 
+        <img src="images/arrowRight.png" onclick="changeImage('hike1')">
+      </div>
+      <div class="picture">
+        <img src="images/hike1/hike1_1.jpg" id="hike1">
+      </div>
+      <div class="arrow">
+        <img src="images/arrowRight.png" onclick="changeImage('hike1')">
+      </div>
+    </div>
+  </div>
+  <div class="hike">
+    <div class="tree" id="carrick">
+      <img src="images/trees.png" height="64" width="64">
+    </div>
+    <div class="hikeRight"><h1>Carrick Creek Loop</h1>
+      <p>Table Rock State Park, South Carolina</p>
+      <p><a href="https://goo.gl/maps/9AKnsmk5eN387wiH9" target="_blank">Location Map</a></p>
+      <p>Summer 2019</p>
+      <p>12 Pictures</p>
+    </div>
+    <div class="gallery">
+      <div class="arrow"> 
+        <img src="images/arrowLeft.png" onclick="changeImageBack('hike2')">
+      </div>
+      <div class="mobileArrow"> 
+        <img src="images/arrowLeft.png" onclick="changeImageBack('hike2')">
+      </div>
+      <div class="mobileArrow"> 
+        <img src="images/arrowRight.png" onclick="changeImage('hike2')">
+      </div>
+      <div class="picture">
+        <img src="images/hike2/hike2_1.jpg" id="hike2">
+      </div>
+      <div class="arrow">
+        <img src="images/arrowRight.png" onclick="changeImage('hike2')">
+      </div>
+    </div>
+  </div>
+  <div class="hike">
+    <div class="tree" id="brissy">
+      <img src="images/trees.png" height="64" width="64">
+    </div>
+    <div class="hikeLeft"><h1>Brissy Ridge</h1>
+      <p>Paris Mountain State Park, South Carolina</p>
+      <p><a href="https://goo.gl/maps/j9gtvVxogKUHuHpZ8" target="_blank">Location Map</a></p>
+      <p>Summer 2019</p>
+      <p>12 Pictures</p>
+    </div>
+    <div class="gallery">
+        <div class="arrow"> 
+          <img src="images/arrowLeft.png" onclick="changeImageBack('hike3')">
+        </div>
+        <div class="mobileArrow"> 
+          <img src="images/arrowLeft.png" onclick="changeImageBack('hike3')">
+        </div>
+        <div class="mobileArrow"> 
+          <img src="images/arrowRight.png" onclick="changeImage('hike3')">
+        </div>
+        <div class="picture">
+          <img src="images/hike3/hike3_1.jpg" id="hike3">
+        </div>
+        <div class="arrow">
+          <img src="images/arrowRight.png" onclick="changeImage('hike3')">
         </div>
     </div>
-    <div id="gameBoard">
-        <div class="row1">
-            <div id="ap">
-                2/2 Action Points
-            </div>
-            <div id="topButtons">
-                <button type="button">Restart</button>
-                <button type="button">Guide</button>
-            </div>
-        </div>
-        <div id="mainBoard">
-            <div class="row2">
-                Player 1 attacks (x1) Player 2! They roll a 6 and destroy a castle!
-            </div>
-            <div class="row3">
-                <div>
-                    <div class="castle">
-                        5
-                    </div>
-                    <div class="castle">
-                        5
-                    </div>
-                    <div class="castle">
-                        5
-                    </div>
-                </div>
-                <div class="castleButtons">
-                    <div>
-                        <button type="button">Attack (x1)</button>
-                    </div>
-                    <div>
-                        <button type="button">Attack (x2)</button>
-                    </div>
-                </div>
-                <div class="castleButtons">
-                    <div>
-                        <button type="button">Attack (x1)</button>
-                    </div>
-                    <div>
-                        <button type="button">Attack (x2)</button>
-                    </div>
-                </div>
-                <div class="castleButtons">
-                    <div>
-                        <button type="button">Attack (x1)</button>
-                    </div>
-                    <div>
-                        <button type="button">Attack (x2)</button>
-                    </div>
-                </div>
-            </div>
-            <div class="column">
-                <div>
-                    <img src="img/column2.png" height="150" class="columnLeft">
-                    <img src="img/column2.png" height="150" class="columnRight">
-                </div>
-            </div>
-            <div class="row4">
-                <img src="img/column2.png" height="150">
-                <div class="dice">
-                    6
-                </div>
-                <img src="img/column2.png" height="150">
-            </div>
-            <div class="column">
-                <div>
-                    <img src="img/column2.png" height="150" class="columnLeft">
-                    <img src="img/column2.png" height="150" class="columnRight">
-                </div>
-            </div>
-            <div class="row5">
-                <div>
-                    <div class="castle">
-                        5
-                    </div>
-                    <div class="castle">
-                        5
-                    </div>
-                    <div class="castle">
-                        5
-                    </div>
-                </div>
-                <div>
-                    <div class="castleAttackText">
-                        (+0 Attack)
-                    </div>
-                    <div class="castleAttackText">
-                        (+0 Attack)
-                    </div>
-                    <div class="castleAttackText">
-                        (+0 Attack)
-                    </div>
-                </div>
-                <div class="castleButtons2">
-                    <div>
-                        <button type="button">Increase Attack</button>
-                    </div>
-                    <div>
-                        <button type="button">Increase Defense</button>
-                    </div>
-                </div>
-                <div class="castleButtons2">
-                    <div>
-                        <button type="button">Increase Attack</button>
-                    </div>
-                    <div>
-                        <button type="button">Increase Defense</button>
-                    </div>
-                </div>
-                <div class="castleButtons2">
-                    <div>
-                        <button type="button">Increase Attack</button>
-                    </div>
-                    <div>
-                        <button type="button">Increase Defense</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="powerCards">
-            <div id="powerCardsTitle">
-                Power Cards
-            </div>
-            <div id="powerCardsList">
-                <ul>
-                    <li>+1 Attack</li>
-                    <li>+1 Defense</li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ul>
-            </div>
-            <div id="powerCardsButtons">
-                <div>
-                    <button type="button">Draw Power Card</button>
-                </div>
-                <div>
-                    <button type="button">Clear Power Cards</button>
-                </div>
-            </div>
-        </div>
-        <div class="row6">
-            <button type="button">End Turn</button>
-        </div>
-    </div>
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/script.js"></script>
+  </div>
+</div>
+<footer class="footer">
+  <div class="footer-copyright">
+    <p><a href="www.codydickson.com">Cody Dickson</a> © 2019 Copyright</p>
+    <p>This website was created as part of my web design portfolio.</p>
+  </div>
+  <div>
+    <p>Tree Icon made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> and Arrow Icons made by <a href="https://www.flaticon.com/authors/gregor-cresnar" title="Gregor Cresnar">Gregor Cresnar</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>, licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></p>
+    <br>
+  </div>
+</footer>
+<div id="picModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="imgModal">
+</div>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>
