@@ -1,131 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Hiking Adventures</title>
+    <title>Castles</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen"/>
     <link href="css/main.css" rel="stylesheet" media="screen"/>
-    <link href="css/normalize.css" rel="stylesheet" media="screen"/>
-    <link href="https://fonts.googleapis.com/css?family=Hepta+Slab&display=swap" rel="stylesheet">
 </head>
 <body>
-<div id="landing"></div>
-<div class="main" id="main">
-  <div class="hike">
-    <div class="tree">
-      <img src="images/trees.png" height="64" width="64">
-    </div>
-    <div class="overview">
-      <h1>Welcome!</h1>
-      <p><b>Hiking Adventures</b> is a series of galleries that feature pictures from our different hiking trips. Use the Left and Right arrows to cycle through the pictures and click / tap on the pictures to make them bigger.</p>
-      <p><a href="#wildcat">Wildcat Wayside Nature Trail (Cleveland, SC)</a></p>
-      <p><a href="#carrick">Carrick Creek Loop (Table Rock State Park, SC)</a></p>
-      <p><a href="#brissy">Brissy Ridge (Paris Mountain State Park, SC)</a></p>
-    </div>
-  </div>
-  <div class="hike">
-    <div class="tree">
-      <img src="images/trees.png" id="wildcat" height="64" width="64">
-    </div>
-    <div class="hikeLeft">
-      <h1>Wildcat Wayside Nature Trail</h1>
-      <p>Cleveland, South Carolina</p>
-      <p><a href="https://goo.gl/maps/YXR6u2RgjMDRaax49" target="_blank">Location Map</a></p>
-      <p>Summer 2019</p>
-      <p>24 Pictures</p>
-    </div>
-    <div class="gallery">
-      <div class="arrow"> 
-        <img src="images/arrowLeft.png" onclick="changeImageBack('hike1')">
-      </div>
-      <div class="mobileArrow"> 
-        <img src="images/arrowLeft.png" onclick="changeImageBack('hike1')">
-      </div>
-      <div class="mobileArrow"> 
-        <img src="images/arrowRight.png" onclick="changeImage('hike1')">
-      </div>
-      <div class="picture">
-        <img src="images/hike1/hike1_1.jpg" id="hike1">
-      </div>
-      <div class="arrow">
-        <img src="images/arrowRight.png" onclick="changeImage('hike1')">
-      </div>
-    </div>
-  </div>
-  <div class="hike">
-    <div class="tree" id="carrick">
-      <img src="images/trees.png" height="64" width="64">
-    </div>
-    <div class="hikeRight"><h1>Carrick Creek Loop</h1>
-      <p>Table Rock State Park, South Carolina</p>
-      <p><a href="https://goo.gl/maps/9AKnsmk5eN387wiH9" target="_blank">Location Map</a></p>
-      <p>Summer 2019</p>
-      <p>12 Pictures</p>
-    </div>
-    <div class="gallery">
-      <div class="arrow"> 
-        <img src="images/arrowLeft.png" onclick="changeImageBack('hike2')">
-      </div>
-      <div class="mobileArrow"> 
-        <img src="images/arrowLeft.png" onclick="changeImageBack('hike2')">
-      </div>
-      <div class="mobileArrow"> 
-        <img src="images/arrowRight.png" onclick="changeImage('hike2')">
-      </div>
-      <div class="picture">
-        <img src="images/hike2/hike2_1.jpg" id="hike2">
-      </div>
-      <div class="arrow">
-        <img src="images/arrowRight.png" onclick="changeImage('hike2')">
-      </div>
-    </div>
-  </div>
-  <div class="hike">
-    <div class="tree" id="brissy">
-      <img src="images/trees.png" height="64" width="64">
-    </div>
-    <div class="hikeLeft"><h1>Brissy Ridge</h1>
-      <p>Paris Mountain State Park, South Carolina</p>
-      <p><a href="https://goo.gl/maps/j9gtvVxogKUHuHpZ8" target="_blank">Location Map</a></p>
-      <p>Summer 2019</p>
-      <p>12 Pictures</p>
-    </div>
-    <div class="gallery">
-        <div class="arrow"> 
-          <img src="images/arrowLeft.png" onclick="changeImageBack('hike3')">
-        </div>
-        <div class="mobileArrow"> 
-          <img src="images/arrowLeft.png" onclick="changeImageBack('hike3')">
-        </div>
-        <div class="mobileArrow"> 
-          <img src="images/arrowRight.png" onclick="changeImage('hike3')">
-        </div>
-        <div class="picture">
-          <img src="images/hike3/hike3_1.jpg" id="hike3">
-        </div>
-        <div class="arrow">
-          <img src="images/arrowRight.png" onclick="changeImage('hike3')">
+    <div id="welcome">
+        <div id="welcomeScreen">
+            <p>Welcome to Castles.</p>
+            <button type="button" onclick="startGame()">Start</button>
         </div>
     </div>
-  </div>
-</div>
-<footer class="footer">
-  <div class="footer-copyright">
-    <p><a href="www.codydickson.com">Cody Dickson</a> © 2019 Copyright</p>
-    <p>This website was created as part of my web design portfolio.</p>
-  </div>
-  <div>
-    <p>Tree Icon made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> and Arrow Icons made by <a href="https://www.flaticon.com/authors/gregor-cresnar" title="Gregor Cresnar">Gregor Cresnar</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>, licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></p>
-    <br>
-  </div>
-</footer>
-<div id="picModal" class="modal">
-  <span class="close">&times;</span>
-  <img class="modal-content" id="imgModal">
-</div>
-<script src="js/jquery-3.4.1.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/script.js"></script>
+    <div id="gameBoard">
+        <div class="row1">
+            <div id="actionPoints">
+                2
+            </div>
+            <div id="actionPointsText">
+                /2 Action Points
+            </div>
+            <div id="topButtons">
+                <button type="button" onclick="restart()">Restart</button>
+                <button type="button">Guide</button>
+            </div>
+        </div>
+        <div id="mainBoard">
+            <div class="row2" id="narrator">
+                The game begins!
+            </div>
+            <div class="row2" id="narrator2"></div>
+            <div class="row3">
+                <div>
+                    <div class="castle" id="enemyCastle1">
+                        5
+                    </div>
+                    <div class="castle" id="enemyCastle2">
+                        5
+                    </div>
+                    <div class="castle" id="enemyCastle3">
+                        5
+                    </div>
+                </div>
+                <div>
+                    <div class="castleAttackText" id="enemyAttack1">
+                        +0 Attack
+                    </div>
+                    <div class="castleAttackText" id="enemyAttack2">
+                        +0 Attack
+                    </div>
+                    <div class="castleAttackText" id="enemyAttack3">
+                        +0 Attack
+                    </div>
+                </div>
+                <div class="castleButtons">
+                    <div>
+                        <button type="button" onclick="attack('enemyCastle1', 'single')">Attack (x1)</button>
+                    </div>
+                    <div>
+                        <button type="button" onclick="attack('enemyCastle1', 'double')">Attack (x2)</button>
+                    </div>
+                </div>
+                <div class="castleButtons">
+                    <div>
+                        <button type="button" onclick="attack('enemyCastle2', 'single')">Attack (x1)</button>
+                    </div>
+                    <div>
+                        <button type="button" onclick="attack('enemyCastle2', 'double')">Attack (x2)</button>
+                    </div>
+                </div>
+                <div class="castleButtons">
+                    <div>
+                        <button type="button" onclick="attack('enemyCastle3', 'single')">Attack (x1)</button>
+                    </div>
+                    <div>
+                        <button type="button" onclick="attack('enemyCastle3', 'double')">Attack (x2)</button>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div>
+                    <img src="img/column2.png" height="100" class="columnLeft">
+                    <img src="img/column2.png" height="100" class="columnRight">
+                </div>
+            </div>
+            <div class="row4">
+                <div class="dice">
+                    6
+                </div>
+            </div>
+            <!--
+            <div class="column">
+                <div>
+                    <img src="img/column2.png" height="100" class="columnLeft">
+                    <img src="img/column2.png" height="100" class="columnRight">
+                </div>
+            </div>
+            -->
+            <div class="row5">
+                <div>
+                    <div class="castle" id="castleDefense1">
+                        5
+                    </div>
+                    <div class="castle" id="castleDefense2">
+                        5
+                    </div>
+                    <div class="castle" id="castleDefense3">
+                        5
+                    </div>
+                </div>
+                <div>
+                    <div class="castleAttackText" id="castleAttack1">
+                        +0 Attack
+                    </div>
+                    <div class="castleAttackText" id="castleAttack2">
+                        +0 Attack
+                    </div>
+                    <div class="castleAttackText" id="castleAttack3">
+                        +0 Attack
+                    </div>
+                </div>
+                <div class="castleButtons2">
+                    <div>
+                        <button type="button" onclick="increaseAttack('castle1')">Increase Attack</button>
+                    </div>
+                    <div>
+                        <button type="button" onclick="increaseDefense('castle1')">Increase Defense</button>
+                    </div>
+                </div>
+                <div class="castleButtons2">
+                    <div>
+                        <button type="button" onclick="increaseAttack('castle2')">Increase Attack</button>
+                    </div>
+                    <div>
+                        <button type="button" onclick="increaseDefense('castle2')">Increase Defense</button>
+                    </div>
+                </div>
+                <div class="castleButtons2">
+                    <div>
+                        <button type="button" onclick="increaseAttack('castle3')">Increase Attack</button>
+                    </div>
+                    <div>
+                        <button type="button" onclick="increaseDefense('castle3')">Increase Defense</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="powerCards">
+            <div id="powerCardsTitle">
+                Power Cards
+            </div>
+            <div id="powerCardsList">
+                <ul>
+                    <li class="powerCardsItem"></li>
+                    <li class="powerCardsItem"></li>
+                    <li class="powerCardsItem"></li>
+                    <li class="powerCardsItem"></li>
+                    <li class="powerCardsItem"></li>
+                </ul>
+            </div>
+            <div id="powerCardsButtons">
+                <div>
+                    <button type="button">Draw Power Card</button>
+                </div>
+                <div>
+                    <button type="button">Clear Power Cards</button>
+                </div>
+            </div>
+        </div>
+        <div class="row6">
+            <button type="button" onclick="endTurn()">End Turn</button>
+        </div>
+    </div>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
