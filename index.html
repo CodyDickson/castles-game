@@ -4,7 +4,9 @@
     <title>Castles</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen"/>
     <link href="css/main.css" rel="stylesheet" media="screen"/>
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="welcome">
@@ -13,167 +15,140 @@
             <button type="button" onclick="startGame()">Start</button>
         </div>
     </div>
-    <div id="gameBoard">
-        <div class="row1">
-            <div id="actionPoints">
-                2
+    <div class="container-fluid" id="gameBoard" >
+        <div class="row topRow">
+            <div class="col-md-4" id="actionPoints">
+                2 / 2 Action Points
             </div>
-            <div id="actionPointsText">
-                /2 Action Points
+            <div class="col-md-4 text-center" id="topButtons" >
+                <button type="button" onclick="restart()" class="button">Restart</button>
+                <button type="button" class="button" data-toggle="modal" data-target="#guideModal">Guide</button>
             </div>
-            <div id="topButtons">
-                <button type="button" onclick="restart()">Restart</button>
-                <button type="button">Guide</button>
-            </div>
-        </div>
-        <div id="mainBoard">
-            <div class="row2" id="narrator">
-                The game begins!
-            </div>
-            <div class="row2" id="narrator2"></div>
-            <div class="row3">
-                <div>
-                    <div class="castle" id="enemyCastle1">
-                        5
-                    </div>
-                    <div class="castle" id="enemyCastle2">
-                        5
-                    </div>
-                    <div class="castle" id="enemyCastle3">
-                        5
-                    </div>
-                </div>
-                <div>
-                    <div class="castleAttackText" id="enemyAttack1">
-                        +0 Attack
-                    </div>
-                    <div class="castleAttackText" id="enemyAttack2">
-                        +0 Attack
-                    </div>
-                    <div class="castleAttackText" id="enemyAttack3">
-                        +0 Attack
-                    </div>
-                </div>
-                <div class="castleButtons">
-                    <div>
-                        <button type="button" onclick="attack('enemyCastle1', 'single')">Attack (x1)</button>
-                    </div>
-                    <div>
-                        <button type="button" onclick="attack('enemyCastle1', 'double')">Attack (x2)</button>
-                    </div>
-                </div>
-                <div class="castleButtons">
-                    <div>
-                        <button type="button" onclick="attack('enemyCastle2', 'single')">Attack (x1)</button>
-                    </div>
-                    <div>
-                        <button type="button" onclick="attack('enemyCastle2', 'double')">Attack (x2)</button>
-                    </div>
-                </div>
-                <div class="castleButtons">
-                    <div>
-                        <button type="button" onclick="attack('enemyCastle3', 'single')">Attack (x1)</button>
-                    </div>
-                    <div>
-                        <button type="button" onclick="attack('enemyCastle3', 'double')">Attack (x2)</button>
-                    </div>
-                </div>
-            </div>
-            <div class="column">
-                <div>
-                    <img src="img/column2.png" height="100" class="columnLeft">
-                    <img src="img/column2.png" height="100" class="columnRight">
-                </div>
-            </div>
-            <div class="row4">
-                <div class="dice">
-                    6
-                </div>
-            </div>
-            <!--
-            <div class="column">
-                <div>
-                    <img src="img/column2.png" height="100" class="columnLeft">
-                    <img src="img/column2.png" height="100" class="columnRight">
-                </div>
-            </div>
-            -->
-            <div class="row5">
-                <div>
-                    <div class="castle" id="castleDefense1">
-                        5
-                    </div>
-                    <div class="castle" id="castleDefense2">
-                        5
-                    </div>
-                    <div class="castle" id="castleDefense3">
-                        5
-                    </div>
-                </div>
-                <div>
-                    <div class="castleAttackText" id="castleAttack1">
-                        +0 Attack
-                    </div>
-                    <div class="castleAttackText" id="castleAttack2">
-                        +0 Attack
-                    </div>
-                    <div class="castleAttackText" id="castleAttack3">
-                        +0 Attack
-                    </div>
-                </div>
-                <div class="castleButtons2">
-                    <div>
-                        <button type="button" onclick="increaseAttack('castle1')">Increase Attack</button>
-                    </div>
-                    <div>
-                        <button type="button" onclick="increaseDefense('castle1')">Increase Defense</button>
-                    </div>
-                </div>
-                <div class="castleButtons2">
-                    <div>
-                        <button type="button" onclick="increaseAttack('castle2')">Increase Attack</button>
-                    </div>
-                    <div>
-                        <button type="button" onclick="increaseDefense('castle2')">Increase Defense</button>
-                    </div>
-                </div>
-                <div class="castleButtons2">
-                    <div>
-                        <button type="button" onclick="increaseAttack('castle3')">Increase Attack</button>
-                    </div>
-                    <div>
-                        <button type="button" onclick="increaseDefense('castle3')">Increase Defense</button>
-                    </div>
-                </div>
+            <div class="col-md-4 text-right">
+                <button type="button" class="button" onclick="endTurn()">End Turn</button>
             </div>
         </div>
-        <div id="powerCards">
-            <div id="powerCardsTitle">
-                Power Cards
-            </div>
-            <div id="powerCardsList">
-                <ul>
-                    <li class="powerCardsItem"></li>
-                    <li class="powerCardsItem"></li>
-                    <li class="powerCardsItem"></li>
-                    <li class="powerCardsItem"></li>
-                    <li class="powerCardsItem"></li>
-                </ul>
-            </div>
-            <div id="powerCardsButtons">
-                <div>
-                    <button type="button">Draw Power Card</button>
-                </div>
-                <div>
-                    <button type="button">Clear Power Cards</button>
-                </div>
+        <div class="row">
+            <div class="col-lg-12 text-center" id="narrator">
+                Castles:
             </div>
         </div>
-        <div class="row6">
-            <button type="button" onclick="endTurn()">End Turn</button>
+        <div class="row">
+            <div class="col-lg-12 text-center" id="narrator2">
+                A game by Knurmuck
+            </div>
+        </div>
+        <div class="row castles enemyCastles">
+            <div class="col-md-4 text-center" id="enemyCastle1">
+                5
+            </div>
+            <div class="col-md-4 text-center" id="enemyCastle2">
+                5
+            </div>
+            <div class="col-md-4 text-center" id="enemyCastle3">
+                5
+            </div>            
+        </div>
+        <div class="row attackRow">
+            <div class="col-md-4 text-center" id="enemyAttack1">
+                +0 Attack
+            </div>
+            <div class="col-md-4 text-center" id="enemyAttack2">
+                +0 Attack
+            </div>
+            <div class="col-md-4 text-center" id="enemyAttack3">
+                +0 Attack
+            </div>            
+        </div>
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <button type="button" class="button" onclick="attack('enemyCastle1', 'single')">Attack (x1)</button>
+            </div>
+            <div class="col-md-4 text-center">
+                <button type="button" class="button" onclick="attack('enemyCastle2', 'single')">Attack (x1)</button>
+            </div>
+            <div class="col-md-4 text-center">
+                <button type="button" class="button" onclick="attack('enemyCastle3', 'single')">Attack (x1)</button>
+            </div>            
+        </div>
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <button type="button" class="button" onclick="attack('enemyCastle1', 'double')">Attack (x2)</button>
+            </div>
+            <div class="col-md-4 text-center">
+                <button type="button" class="button" onclick="attack('enemyCastle2', 'double')">Attack (x2)</button>
+            </div>
+            <div class="col-md-4 text-center">
+                <button type="button" class="button" onclick="attack('enemyCastle3', 'double')">Attack (x2)</button>
+            </div>            
+        </div>
+        <div class="row">
+            <div class="col-lg-12 text-center" id="middleBoard">
+            </div>
+        </div>
+        <div class="row castles playerCastles">
+            <div class="col-md-4 text-center" id="playerCastle1">
+                5
+            </div>
+            <div class="col-md-4 text-center" id="playerCastle2">
+                5
+            </div>
+            <div class="col-md-4 text-center" id="playerCastle3">
+                5
+            </div>            
+        </div>
+        <div class="row attackRow">
+            <div class="col-md-4 text-center" id="playerAttack1">
+                +0 Attack
+            </div>
+            <div class="col-md-4 text-center" id="playerAttack2">
+                +0 Attack
+            </div>
+            <div class="col-md-4 text-center" id="playerAttack3">
+                +0 Attack
+            </div>            
+        </div>
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <button type="button" class="button" onclick="increaseAttack('playerCastle1')">Increase Attack</button>
+            </div>
+            <div class="col-md-4 text-center">
+                <button type="button" class="button" onclick="increaseAttack('playerCastle2')">Increase Attack</button>
+            </div>
+            <div class="col-md-4 text-center">
+                <button type="button" class="button" onclick="increaseAttack('playerCastle3')">Increase Attack</button>
+            </div>    
+        </div>
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <button type="button" class="button" onclick="increaseDefense('playerCastle1')">Increase Defense</button>
+            </div>
+            <div class="col-md-4 text-center">
+                <button type="button" class="button" onclick="increaseDefense('playerCastle2')">Increase Defense</button>
+            </div>
+            <div class="col-md-4 text-center">
+                <button type="button" class="button" onclick="increaseDefense('playerCastle3')">Increase Defense</button>
+            </div>    
+        </div>
+    </div>
+
+    <div class="modal fade" id="guideModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="guideModal">Guide to Playing "Castles"</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modalBody">
+                    Welcome to the game and thanks for playing. Castles is a short, simple game that you can play right here in the browser window. Let's go over a few things:<br><br>The top blue row are your opponent's castles. You win the game by destroying all three of them.<br><br>The bottom green row are your castles. If you lose all three castles, you lose the game.<br><br>On your turn, you have 2 Action Points (AP) to spend. These can be spent upgrading your Castles (Increase Attack, Increase Defense) or attacking your opponent (Attack (x1), Attack (x2)). When you click End Turn, your opponent will move and then your AP will be refreshed.<br><br>Attack (x1) costs 1 Action Point and rolls a single dice (1-6). Attack (x2) costs 2 Action Points and rolls two dice (2-12). To destroy a castle, you must roll equal to or greater than the castle's defense. So if the opponent's castle has a 5 on it, you must roll 5 or higher to destroy it.<br><br>Increase Defense increases that castle's defense value. Increase Attack increases that castle's attack value, which only applies when you are attacking the castle that is directly across from that castle.<br><br>The maximum defense for castles is 10 and the maximum attack power is +3.<br><br>
+                </div>
+            </div>
         </div>
     </div>
     <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
