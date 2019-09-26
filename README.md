@@ -1,3 +1,3 @@
 # castles-game
 
-This is a streamlined version of a card-and-dice game I designed a few years ago. It is going to be built using JavaScript.
+This is a game of luck and strategy that can be played in the browser window. It was built and designed with JavaScript and Bootstrap.
