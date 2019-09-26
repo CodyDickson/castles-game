@@ -11,6 +11,9 @@ body {
 }
 
 /* Game Board */
+#gameBoard {
+    margin-bottom: 1em;
+}
 
 /* Welcome Screen */
 #welcome {
