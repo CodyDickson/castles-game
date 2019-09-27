@@ -20,6 +20,7 @@ var state = true;
 // Main Menu and Game Set Up
 function startGame() {
     document.getElementById("welcome").style.display = "none";
+    document.getElementById("footer").style.display = "none";
     document.getElementById("gameBoard").style.display = "block";   
 }
 
@@ -35,7 +36,7 @@ function attack (enemyCastle, attackType) {
         } else if (enemyCastle == 'enemyCastle1' && enemyCastle1 > 0) {
             actionPoints -= (attackType == 'single') ? 1 : 2;
             document.getElementById('actionPoints').innerHTML = actionPoints + ' / 2 Action Points';
-            dice = (attackType == 'single') ? (Math.floor(Math.random() * 6) + 1) : (Math.floor(Math.random() * 12) + 2);
+            dice = (attackType == 'single') ? (Math.floor(Math.random() * 6) + 1) : (Math.floor(Math.random() * 11) + 2);
             if (enemyCastle1 <= (dice + playerAttack1)) {
                 document.getElementById('narrator').innerHTML = 'Dice Roll: ' + dice + ' + Attack: ' + playerAttack1 +  ' / You destroyed an enemy Castle!';
                 document.getElementById('enemyCastle1').innerHTML = 'X';
@@ -49,7 +50,7 @@ function attack (enemyCastle, attackType) {
         } else if (enemyCastle == 'enemyCastle2' && enemyCastle2 > 0) {
             actionPoints -= (attackType == 'single') ? 1 : 2;
             document.getElementById('actionPoints').innerHTML = actionPoints + ' / 2 Action Points';
-            dice = (attackType == 'single') ? (Math.floor(Math.random() * 6) + 1) : (Math.floor(Math.random() * 12) + 2);
+            dice = (attackType == 'single') ? (Math.floor(Math.random() * 6) + 1) : (Math.floor(Math.random() * 11) + 2);
             if (enemyCastle2 <= (dice + playerAttack2)) {
                 document.getElementById('narrator').innerHTML = 'Dice Roll: ' + dice + ' + Attack: ' + playerAttack2 +  ' / You destroyed an enemy Castle!';
                 document.getElementById('enemyCastle2').innerHTML = 'X';
@@ -63,7 +64,7 @@ function attack (enemyCastle, attackType) {
         } else if (enemyCastle == 'enemyCastle3' && enemyCastle3 > 0) {
             actionPoints -= (attackType == 'single') ? 1 : 2;
             document.getElementById('actionPoints').innerHTML = actionPoints + ' / 2 Action Points';
-            dice = (attackType == 'single') ? (Math.floor(Math.random() * 6) + 1) : (Math.floor(Math.random() * 12) + 2);
+            dice = (attackType == 'single') ? (Math.floor(Math.random() * 6) + 1) : (Math.floor(Math.random() * 11) + 2);
             if (enemyCastle3 <= (dice + playerAttack3)) {
                 document.getElementById('narrator').innerHTML = 'Dice Roll: ' + dice + ' + Attack: ' + playerAttack3 +  ' / You destroyed an enemy Castle!';
                 document.getElementById('enemyCastle3').innerHTML = 'X';
@@ -138,15 +139,15 @@ function increaseDefense(castleNumber) {
             document.getElementById('narrator').innerHTML = 'You have increased your Castle\'s Defense.';
             document.getElementById('actionPoints').innerHTML = actionPoints + ' / 2 Action Points';
             if (castleNumber == 'playerCastle1') {
-                playerCastle1 +=1;
+                playerCastle1 += 1;
                 document.getElementById('playerCastle1').innerHTML = playerCastle1;
             }
             else if (castleNumber == 'playerCastle2') {
-                playerCastle2 +=1;
+                playerCastle2 += 1;
                 document.getElementById('playerCastle2').innerHTML = playerCastle2;
             }
             else if (castleNumber == 'playerCastle3') {
-                playerCastle3 +=1;
+                playerCastle3 += 1;
                 document.getElementById('playerCastle3').innerHTML = playerCastle3;
             }
         }
@@ -160,6 +161,7 @@ function increaseDefense(castleNumber) {
 function enemyTurn () {
     enemyAP = 2;
     brain = Math.floor(Math.random() * 45) + 1;
+    var counter = 0;
     while (enemyAP > 0) {
         // Brain 1-30: Single AP Moves (1-10 playerCastle 1, 11-20 playerCastle 2, 21-30 playerCastle 3)
         // Verifies that playerCastle is still alive and enemy is capable of a successful attack
@@ -203,11 +205,11 @@ function enemyTurn () {
                 document.getElementById('narrator').innerHTML = '';
             }
             // If the opponent makes a single attack, it will also perform a single move
-            // Loop through this part until one of these conditions comes true
+            // Loop through this part until one of these conditions comes true, break out after 25 loops
             // Increase Defense if brain is an even number / Increase Attack if brain is an odd number
             while (enemyAP > 0) {
                 brain = Math.floor(Math.random() * 45) + 1;
-                if (brain % 2 == 0) {
+                if (brain % 2 == 0 && counter < 25) {
                     dice = Math.floor(Math.random() * 3) + 1;
                     if (dice == 1 && enemyCastle1 > 0 && enemyCastle1 < 10) {
                         enemyCastle1 += 1;
@@ -236,8 +238,10 @@ function enemyTurn () {
                         } else {
                             document.getElementById('narrator2').innerHTML = 'Your opponent upgraded the defense of Castle #3.';
                         }       
+                    } else {
+                        ++counter;
                     }
-                } else if (brain % 2 == 1) {
+                } else if (brain % 2 == 1 && counter < 25) {
                     dice = Math.floor(Math.random() * 3) + 1;
                     if (dice == 1 && enemyAttack1 < 3 && enemyCastle1 > 0 && playerCastle1 > 0) {
                         enemyAttack1 += 1;
@@ -266,11 +270,14 @@ function enemyTurn () {
                         } else {
                             document.getElementById('narrator2').innerHTML = 'Your opponent upgraded the attack power of Castle #3.';
                         }
+                    } else {
+                        ++counter;
                     }
-                } else if (enemyAP == 2) {
+                } else if (enemyAP == 2 && counter == 25) {
                     brain = Math.floor(Math.random() * 45) + 31;
-                    continue;
+                    break;
                 } else {
+                    enemyAP -= 1;
                     document.getElementById('narrator2').innerHTML = 'Your opponent has no further valid moves for this turn.';
                 }
             }
@@ -278,41 +285,41 @@ function enemyTurn () {
             // 31-45 Double AP Attack
             while (enemyAP == 2) {
                 if (playerCastle1 > 0 && brain >= 31 && brain < 36) {
-                    dice = Math.floor(Math.random() * 12) + 2;
+                    dice = Math.floor(Math.random() * 11) + 2;
                     enemyAP -= 2;
-                    if (dice >= playerCastle1) {
+                    if ((dice + enemyAttack1) >= playerCastle1) {
                         document.getElementById('narrator').innerHTML = 'Dice Roll (x2): ' + dice + ' + Attack: ' + enemyAttack1 + ' / Your opponent destroyed Castle #1!';
                         document.getElementById('narrator2').innerHTML = '';
                         document.getElementById('playerCastle1').innerHTML = 'X';
                         document.getElementById('playerCastle1').style.backgroundColor = "#f77754";
                         playerCastle1 = 0;
-                    } else if (dice < playerCastle1) {
+                    } else if ((dice + enemyAttack1) < playerCastle1) {
                         document.getElementById('narrator').innerHTML = 'Dice Roll (x2): ' + dice + ' + Attack: ' + enemyAttack1 + ' / Your opponent attempted to attack Castle #1 and failed!';
                         document.getElementById('narrator2').innerHTML = '';
                     }
                 } else if (playerCastle2 > 0 && brain <= 40 && brain > 35) {
-                    dice = Math.floor(Math.random() * 12) + 2;
+                    dice = Math.floor(Math.random() * 11) + 2;
                     enemyAP -= 2;
-                    if (dice >= playerCastle2) {
+                    if ((dice + enemyAttack2) >= playerCastle2) {
                         document.getElementById('narrator').innerHTML = 'Dice Roll (x2): ' + dice + ' + Attack: ' + enemyAttack2 + ' / Your opponent destroyed Castle #2!';
                         document.getElementById('narrator2').innerHTML = '';
                         document.getElementById('playerCastle2').innerHTML = 'X';
                         document.getElementById('playerCastle2').style.backgroundColor = "#f77754";
                         playerCastle2 = 0;
-                    } else if (dice < playerCastle2) {
+                    } else if ((dice + enemyAttack2) < playerCastle2) {
                         document.getElementById('narrator').innerHTML = 'Dice Roll (x2): ' + dice + ' + Attack: ' + enemyAttack2 + ' / Your opponent attempted to attack Castle #2 and failed!';
                         document.getElementById('narrator2').innerHTML = '';
                     }
                 } else if (playerCastle3 > 0 && brain <= 45 && brain > 40) {
-                    dice = Math.floor(Math.random() * 12) + 2;
+                    dice = Math.floor(Math.random() * 11) + 2;
                     enemyAP -= 2;
-                    if (dice >= playerCastle3) {
+                    if ((dice + enemyAttack3) >= playerCastle3) {
                         document.getElementById('narrator').innerHTML = 'Dice Roll (x2): ' + dice + ' + Attack: ' + enemyAttack3 + ' / Your opponent destroyed Castle #3!';
                         document.getElementById('narrator2').innerHTML = '';
                         document.getElementById('playerCastle3').innerHTML = 'X';
                         document.getElementById('playerCastle3').style.backgroundColor = "#f77754";
                         playerCastle3 = 0;
-                    } else if (dice < playerCastle3) {
+                    } else if ((dice + enemyAttack3) < playerCastle3) {
                         document.getElementById('narrator').innerHTML = 'Dice Roll (x2): ' + dice + ' + Attack: ' + enemyAttack3 + ' / Your opponent attempted to attack Castle #3 and failed!';
                         document.getElementById('narrator2').innerHTML = '';
                     }
