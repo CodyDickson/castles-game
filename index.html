@@ -11,8 +11,12 @@
 <body>
     <div id="welcome">
         <div id="welcomeScreen">
-            <p>Welcome to Castles.</p>
-            <button type="button" onclick="startGame()">Start</button>
+            <div class="col-lg-12 title">Castles:</div>
+            <div class="col-lg-12 title">The Game</div>
+            <div class="col-lg-12 titleButton">
+                <button type="button" class="button" onclick="startGame()">Start</button>
+                <button type="button" class="button" onclick="window.open('https://github.com/CodyDickson/castles-game');" target="_blank">Github</button>
+            </div>
         </div>
     </div>
     <div class="container-fluid" id="gameBoard" >
@@ -131,6 +135,13 @@
             </div>    
         </div>
     </div>
+    <footer class="col-lg-12 text-center footer" id="footer">
+        <div>
+            <div class="col-lg-12 titleLowerText">Once you start the game, you can access the Guide at the top-center of your screen for instructions on how to play.</div>
+            <div><a href="http://www.codydickson.com" target="_blank">Cody Dickson</a> © 2019 Copyright</p>
+            <div>This website was created as part of my web design portfolio.</div>
+        </div>
+    </footer>
     <div class="modal fade" id="guideModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content">
