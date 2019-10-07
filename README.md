@@ -10,13 +10,15 @@ GAME RULES (Copied directly from the Guide in the game):
 
 Welcome to the game and thanks for playing. Castles is a small game that you can play right here in the browser window. Let's go over a few things:
 
-The (blue) top row are your opponent's castles. You win the game by destroying all three of them. The (green) bottom row are your castles. If you lose all three castles, you lose the game.
+The <font color="blue"><b>top row</b></font> are your opponent's castles. You win the game by destroying all three of them.
 
-On your turn, you have 2 Action Points (AP) to spend. These can be spent upgrading your castles (Increase Attack, Increase Defense) or attacking your opponent (Attack (x1), <i>Attack (x2)). When you click End Turn, your opponent will move and then your AP will be refreshed.
+The <font color="green"><b>bottom row</b></font> are your castles. If you lose all three castles, you lose the game.
+
+On your turn, you have 2 Action Points (AP) to spend. These can be spent upgrading your castles (<i>Increase Attack</i>, <i>Increase Defense</i>) or attacking your opponent (<i>Attack (x1)</i>, <i>Attack (x2)</i>). When you click End Turn, your opponent will move and then your AP will be refreshed.
   
-Attack (x1) costs 1 Action Point and rolls a single dice (1-6). Attack (x2) costs 2 Action Points and rolls two dice (2-12). To destroy a castle, you must roll equal to or greater than the castle's defense. For example, if the opponent's castle has a 5 on it, you must roll 5 or higher to destroy it.
+<i>Attack (x1)</i> costs 1 Action Point and rolls a single dice (1-6). <i>Attack (x2)</i> costs 2 Action Points and rolls two dice (2-12). To destroy a castle, you must roll equal to or greater than the castle's defense. For example, if the opponent's castle has a 5 on it, you must roll 5 or higher to destroy it.
 
-Increase Defense increases that castle's defense value. Increase Attack increases that castle's attack value, which only applies when you are attacking the castle that is directly across from that castle.
+Increase Defense</i> increases that castle's defense value. <i>Increase Attack</i> increases that castle's attack value, which only applies when you are attacking the castle that is directly across from that castle.
 
 The maximum defense for castles is 10 and the maximum attack power is +3
 
