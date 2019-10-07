@@ -93,12 +93,18 @@ function increaseAttack(castleNumber) {
         document.getElementById('narrator2').innerHTML = '';
         if (actionPoints == 0) {
             document.getElementById('narrator').innerHTML = 'You are out of Action Points for the round.';
-        } else if (castleNumber == 'playerCastle1' && playerAttack1 > 2) {
-            document.getElementById('narrator').innerHTML = 'This Castle\'s Attack cannot be upgraded any more.';
-        } else if (castleNumber == 'playerCastle2' && playerAttack2 > 2) {
-            document.getElementById('narrator').innerHTML = 'This Castle\'s Attack cannot be upgraded any more.';
-        } else if (castleNumber == 'playerCastle3' && playerAttack3 > 2) {
-            document.getElementById('narrator').innerHTML = 'This Castle\'s Attack cannot be upgraded any more.';
+        } else if (castleNumber == 'playerCastle1' && playerAttack1 == 3) {
+            document.getElementById('narrator').innerHTML = "This Castle's Attack cannot be upgraded any more.";
+        } else if (castleNumber == 'playerCastle2' && playerAttack2 == 3) {
+            document.getElementById('narrator').innerHTML = "This Castle's Attack cannot be upgraded any more.";
+        } else if (castleNumber == 'playerCastle3' && playerAttack3 == 3) {
+            document.getElementById('narrator').innerHTML = "This Castle's Attack cannot be upgraded any more.";
+        } else if (castleNumber == 'playerCastle1' && playerCastle1 == 0) {
+            document.getElementById('narrator').innerHTML = "You cannot upgrade a destroyed Castle.";
+        } else if (castleNumber == 'playerCastle2' && playerCastle2 == 0) {
+            document.getElementById('narrator').innerHTML = "You cannot upgrade a destroyed Castle.";
+        } else if (castleNumber == 'playerCastle3' && playerCastle3 == 0) {
+            document.getElementById('narrator').innerHTML = "You cannot upgrade a destroyed Castle.";
         } else {
             actionPoints -= 1;
             document.getElementById('narrator').innerHTML = 'You have increased your Castle\'s Attack.';
