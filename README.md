@@ -10,9 +10,9 @@ GAME RULES (Copied directly from the Guide in the game):
 
 Welcome to the game and thanks for playing. Castles is a small game that you can play right here in the browser window. Let's go over a few things:
 
-The <font color="blue"><b>top row</b></font> are your opponent's castles. You win the game by destroying all three of them.
+The (blue) <b>top row</b> are your opponent's castles. You win the game by destroying all three of them.
 
-The <font color="green"><b>bottom row</b></font> are your castles. If you lose all three castles, you lose the game.
+The (green) <b>bottom row</b> are your castles. If you lose all three castles, you lose the game.
 
 On your turn, you have 2 Action Points (AP) to spend. These can be spent upgrading your castles (<i>Increase Attack</i>, <i>Increase Defense</i>) or attacking your opponent (<i>Attack (x1)</i>, <i>Attack (x2)</i>). When you click End Turn, your opponent will move and then your AP will be refreshed.
   
